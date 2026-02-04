@@ -1,48 +1,47 @@
 const noBtn = document.getElementById("noBtn");
 const yesBtn = document.getElementById("yesBtn");
 const question = document.getElementById("question");
-const heartsContainer = document.querySelector(".hearts");
+const floating = document.querySelector(".floating");
 
-const messages = [
-  "BANGARAM🥺",
-  "PLEASSEEEEEE🐧",
-  "Please MERI JAANNNN",
-  "HAANNN BOLDEE 🍫",
-  "PLEASEEE 🥹",
+const texts = [
+  "Wait… what? 🥺",
+  "You don’t mean that 😭",
+  "Think again 😏",
+  "I’ll cry 😢",
+  "Okay now this is personal 💔"
 ];
 
-let msgIndex = 0;
+let count = 0;
 
-// Move NO button on touch
-noBtn.addEventListener("touchstart", moveButton);
-noBtn.addEventListener("mouseover", moveButton);
-
-function moveButton() {
-  const x = Math.random() * 200 - 100;
-  const y = Math.random() * 100 - 50;
+// Move NO button smoothly
+function dodge() {
+  const x = Math.random() * 180 - 90;
+  const y = Math.random() * 90 - 45;
 
   noBtn.style.transform = `translate(${x}px, ${y}px)`;
-
-  question.innerHTML = messages[msgIndex];
-  msgIndex = (msgIndex + 1) % messages.length;
+  question.textContent = texts[count % texts.length];
+  count++;
 }
 
-// YES click
+noBtn.addEventListener("touchstart", dodge);
+noBtn.addEventListener("mouseover", dodge);
+
+// YES interaction
 yesBtn.addEventListener("click", () => {
-  question.innerHTML = "YAY!! I LOVE YOU Virtual Date? 14th Feb?👄";
+  question.innerHTML = "YAY!! I LOVEEEEE YOUUUUUU 🤧 VIRTUAL DATE ON 14TH?";
   document.querySelector(".buttons").style.display = "none";
-  startHearts();
+  launchHearts();
 });
 
-// Floating hearts generator
-function startHearts() {
+// Floating hearts
+function launchHearts() {
   setInterval(() => {
-    const heart = document.createElement("span");
-    heart.innerHTML = "❤️";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = Math.random() * 3 + 2 + "s";
-    heartsContainer.appendChild(heart);
+    const span = document.createElement("span");
+    span.innerHTML = ["🍓","🐽","🎀","😋"][Math.floor(Math.random()*4)];
+    span.style.left = Math.random() * 100 + "vw";
+    span.style.animationDuration = Math.random() * 3 + 4 + "s";
+    floating.appendChild(span);
 
-    setTimeout(() => heart.remove(), 5000);
-  }, 200);
+    setTimeout(() => span.remove(), 7000);
+  }, 250);
 }
