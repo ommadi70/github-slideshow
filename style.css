@@ -1,87 +1,117 @@
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  margin: 0;
   height: 100vh;
-  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  background: linear-gradient(270deg, #ff6ec4, #7873f5);
+  background-size: 400% 400%;
+  animation: gradientMove 10s ease infinite;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Comic Sans MS', cursive;
+  font-family: "Poppins", system-ui, sans-serif;
   overflow: hidden;
 }
 
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(10px);
+}
+
 .card {
-  background: white;
-  padding: 30px 20px;
   width: 90%;
-  max-width: 360px;
-  border-radius: 25px;
+  max-width: 380px;
+  padding: 32px 24px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.25);
   text-align: center;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-  animation: popIn 0.8s ease;
+  animation: floatIn 1s ease;
+  z-index: 2;
+}
+
+@keyframes floatIn {
+  from {
+    transform: translateY(40px) scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
 }
 
 h1 {
-  font-size: 1.8rem;
-  color: #ff4d6d;
+  font-size: 2rem;
+  color: #fff;
+}
+
+.sub {
+  margin-top: 10px;
+  color: #fefefe;
+  opacity: 0.85;
+  font-size: 0.95rem;
 }
 
 .buttons {
-  margin-top: 25px;
+  margin-top: 30px;
   position: relative;
-  height: 120px;
+  height: 140px;
 }
 
 button {
-  padding: 15px 25px;
+  position: absolute;
+  width: 140px;
+  padding: 16px;
+  border-radius: 40px;
   font-size: 1.1rem;
   border: none;
-  border-radius: 30px;
-  position: absolute;
-  width: 120px;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:active {
+  transform: scale(0.95);
 }
 
 #yesBtn {
-  background: #ff4d6d;
+  background: linear-gradient(135deg, #ff4d6d, #ff8fab);
   color: white;
-  left: 20px;
+  left: 10px;
+  box-shadow: 0 12px 25px rgba(255, 77, 109, 0.5);
 }
 
 #noBtn {
-  background: #aaa;
-  color: white;
-  right: 20px;
+  background: rgba(255,255,255,0.8);
+  color: #444;
+  right: 10px;
 }
 
-@keyframes popIn {
-  from {
-    transform: scale(0.5);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-/* Floating hearts */
-.hearts span {
+.floating span {
   position: absolute;
-  bottom: -20px;
   font-size: 20px;
-  animation: floatUp linear infinite;
+  animation: float 6s linear infinite;
+  opacity: 0.8;
 }
 
-@keyframes floatUp {
+@keyframes float {
   from {
-    transform: translateY(0);
-    opacity: 1;
+    transform: translateY(100vh);
+    opacity: 0;
   }
   to {
-    transform: translateY(-100vh);
-    opacity: 0;
+    transform: translateY(-10vh);
+    opacity: 1;
   }
 }
