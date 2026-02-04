@@ -4,10 +4,10 @@ const question = document.getElementById("question");
 const heartsContainer = document.querySelector(".hearts");
 
 const messages = [
-  "Are you sure? 🥺",
-  "Think again 😢",
-  "I’ll be sad 💔",
-  "What if I bring chocolates? 🍫",
+  "BANGARAM🥺",
+  "PLEASSEEEEEE🐧",
+  "Please MERI JAANNNN",
+  "HAANNN BOLDEE 🍫",
   "PLEASEEE 🥹",
 ];
 
