@@ -29,7 +29,7 @@ function moveButton() {
 
 // YES click
 yesBtn.addEventListener("click", () => {
-  question.innerHTML = "YAY!! 💕 I LOVE YOU 😍";
+  question.innerHTML = "YAY!! I LOVE YOU Virtual Date? 14th Feb?👄";
   document.querySelector(".buttons").style.display = "none";
   startHearts();
 });
