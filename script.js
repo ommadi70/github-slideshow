@@ -4,11 +4,11 @@ const question = document.getElementById("question");
 const floating = document.querySelector(".floating");
 
 const texts = [
-  "Wait… what? 🥺",
-  "You don’t mean that 😭",
-  "Think again 😏",
-  "I’ll cry 😢",
-  "Okay now this is personal 💔"
+  "MERI JAAN🥺",
+  "NA BANGARAMMMMM KADHAA",
+  "ILYYYYSMMMM🥹",
+  "PLEAAASEEEEEEEEEE 😗😗",
+  "🫠🤧HAAN BOLDE NA"
 ];
 
 let count = 0;
